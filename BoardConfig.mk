@@ -24,6 +24,8 @@ ODM_MANIFEST_N_FILES := $(DEVICE_PATH)/sku/manifest_n.xml
 
 # Kernel
 BOARD_KERNEL_CMDLINE += androidboot.hab.product=rhodei
+# Touch firmware must also be available before Android ueventd starts.
+BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware
 TARGET_KERNEL_CONFIG += vendor/ext_config/moto-holi-rhodei.config
 
 # Kernel Modules

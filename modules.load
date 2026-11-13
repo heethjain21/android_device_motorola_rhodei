@@ -48,6 +48,7 @@ wl2868c.ko
 cci_intf.ko
 touchscreen_mmi.ko
 nova_0flash_mmi.ko
+ilitek_0flash_mmi.ko
 sec_nfc.ko
 sx937x_sar.ko
 mmi_sys_temp.ko
