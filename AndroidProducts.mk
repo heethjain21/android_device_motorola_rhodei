@@ -4,4 +4,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_rhodep.mk
+    $(LOCAL_DIR)/lineage_rhodei.mk
+
+
+COMMON_LUNCH_CHOICES:= \
+    lineage_rhodei-userdebug \
+    lineage_rhodei-eng
