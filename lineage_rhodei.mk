@@ -14,6 +14,14 @@ $(call inherit-product, device/motorola/rhodei/device.mk)
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# For diagnostic builds, start USB ADB with the supplied host key trusted.
+ifneq ($(filter userdebug eng,$(TARGET_BUILD_VARIANT)),)
+ifneq ($(strip $(RHODEI_ADB_PUBLIC_KEY)),)
+PRODUCT_ADB_KEYS := $(strip $(RHODEI_ADB_PUBLIC_KEY))
+PRODUCT_SYSTEM_PROPERTIES += persist.sys.usb.config=adb
+endif
+endif
+
 PRODUCT_NAME := lineage_rhodei
 PRODUCT_DEVICE := rhodei
 PRODUCT_MANUFACTURER := motorola
