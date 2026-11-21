@@ -32,6 +32,9 @@ BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(DEVICE_PATH)/modules.blocklist
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load.recovery))
 BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD)
 
+# Disable Sunlight Enhancement because the TXD panel lacks a usable HBM control.
+$(call soong_config_set_bool,livedisplay_sysfs,enable_se,false)
+
 # Partitions
 BOARD_MOT_DP_GROUP_SIZE := 8608808960 # (BOARD_SUPER_PARTITION_SIZE - 4MB)
 BOARD_SUPER_PARTITION_SIZE := 8613003264
